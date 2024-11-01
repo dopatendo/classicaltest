@@ -13,8 +13,6 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 <!-- ![![](http://cranlogs.r-pkg.org/badges/grand-total/classicaltest?color=blue)](https://cran.r-project.org/package=classicaltest)-->
 <!-- badges: end -->
 
-The goal of classicaltest is to …
-
 ## Installation
 
 You can install the stable version of `classicaltest` directly from
