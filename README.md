@@ -9,9 +9,11 @@
 status](https://www.r-pkg.org/badges/version/classicaltest)](https://CRAN.R-project.org/package=classicaltest)
 ![GitHub R package
 version](https://img.shields.io/github/r-package/v/dopatendo/classicaltest)
-[![](https://img.shields.io/badge/doi-10.32614/CRAN.package.classicaltest-green.svg)](https://doi.org/10.32614/CRAN.package.classicaltest)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+![Static
+Badge](https://img.shields.io/badge/dependencies-none-brightgreen)
+[![](https://img.shields.io/badge/doi-10.32614/CRAN.package.classicaltest-green.svg)](https://doi.org/10.32614/CRAN.package.classicaltest)
 <!-- ![![](http://cranlogs.r-pkg.org/badges/grand-total/classicaltest?color=blue)](https://cran.r-project.org/package=classicaltest)-->
 <!-- badges: end -->
 
