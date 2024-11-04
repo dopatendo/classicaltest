@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# classicaltest
+# classicaltest <img src="man/figures/logo.png" align="right" height="127" alt="" />
 
 <!-- badges: start -->
 
