@@ -9,30 +9,47 @@ correct(x, key, navalue = NA)
 \arguments{
 \item{x}{a data frame or matrix.}
 
-\item{key}{a vector indicating the keys to score the data.}
+\item{key}{a vector or a list indicating the keys to score the data.
+If answers can only be right or wrong use a vector. If partial credits are allowed,
+use a list where the first element contains the keys for full credits, and next
+elements contain progressively the partial credit information.
+If a test has a combination of full credit and partial credit items, leave
+the full credit items as NAs in the keys for partial credit.}
 
 \item{navalue}{a single value indicating the score of NAs.}
 }
 \value{
-A data frame with 1s for correct answers and 0s for incorrect answers.
+A data frame with scored answers.
 }
 \description{
-Transforms a data frame or matrix with raw answers into
-a data frame with 1s (correct answers) and 0s (incorrect answers).
+Transforms a data frame or matrix from raw answers to scores given a key.
 }
 \examples{
-data(dichodata)
-data(dichokey)
 
-# NAs as NAs
+
+# Full credit
+dichokey
+## NAs as NAs
 head(dichodata)
 ex1 <- correct(x = dichodata, key = dichokey, navalue = NA)
 head(ex1)
 
-# NAs as 0s
+## NAs as 0s
 head(dichodata)
 ex2 <- correct(x = dichodata, key = dichokey, navalue = 0)
 head(ex2)
 
+
+# Partial credit
+partialkey
+## NAs as NAs
+head(partialdata)
+ex3 <- correct(x = partialdata, key = partialkey, navalue = NA)
+head(ex3)
+
+## NAs as 0s
+head(partialdata)
+ex4 <- correct(x = partialdata, key = partialkey, navalue = 0)
+head(ex4)
 
 }

@@ -1,7 +1,7 @@
 Package: classicaltest
 Type: Package
 Title: Classical Test Theory (CTT) Analysis
-Version: 0.7.1
+Version: 0.7.2
 Authors@R: person(given = "Andrés",
                     family = "Christiansen",
                     role = c("aut", "cre"),
@@ -12,4 +12,4 @@ Depends: R (>= 3.5.0)
 License: GPL (>= 2.0)
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2

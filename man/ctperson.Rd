@@ -4,14 +4,18 @@
 \alias{ctperson}
 \title{Classical test theory person statistics}
 \usage{
-ctperson(x, administered = NULL)
+ctperson(x, administered = NULL, maxscore = NULL)
 }
 \arguments{
-\item{x}{a data frame or matrix of corrected data (only containing 1s, 0s, and NAs).}
+\item{x}{a data frame or matrix of scored data.}
 
-\item{administered}{a logical matrix indicating which items where administered.
+\item{administered}{a logical matrix indicating which items were administered.
 The dimensions should be the same as \code{x}. If \code{NULL} all items
 are considered administered.}
+
+\item{maxscore}{a numeric value indicating which is the maximum score possible
+per item. The minimum score is assumed to be 0. If \code{NULL} the maximum score is assumed to be
+derived from the maximum value found in \code{x} or 1 if \code{x} only has 0s.}
 }
 \value{
 A data frame with person statistics.
@@ -19,12 +23,11 @@ A data frame with person statistics.
 \description{
 Calculates persons statistics given a data frame (or matrix) of corrected
 data. Including sum scores, number of administered items, number of
-answered items, proportion of correct items (for dichotomous data),
-and mean score by item (for polytomous data).
+answered items, proportion of correct items, and mean score by item.
 }
 \examples{
 # Data preparation
-## Corrected data
+## Scored data
 corr <- correct(x = dichodata, key = dichokey, navalue = NA)
 ## Random administered matrix
 set.seed(1919)
