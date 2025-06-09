@@ -72,7 +72,7 @@ distractors <- function(x, key,
 
     wtt <- stats::xtabs(wt ~ xfi)
     wttv <- wtt/sum(wt[!is.na(xfi)],na.rm = TRUE)
-    wtt <- wtt/sum(wt,na.rm = TRUE)
+    wtt <- prop.table(tab)
     ene[[i]] <- cbind(tab,wtt,wttv)
   }
   ene <- do.call(rbind,ene)

@@ -27,6 +27,5 @@ itemmean(ex)
 set.seed(1919)
 wt <- sample(x = 1:4, size = nrow(dichodata), replace = TRUE)
 itemmean(ex,wt = wt)
-splithalf(ex,wt = wt, tries = 5)
 
 }
