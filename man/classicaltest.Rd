@@ -6,41 +6,42 @@
 \usage{
 classicaltest(
   x,
-  key = NULL,
-  categories = NULL,
+  key,
+  navalue = NA,
   wt = NULL,
-  listwise = FALSE,
-  recScore = TRUE,
-  administered = NULL
+  itemcategories = NULL,
+  administered = NULL,
+  itemscores = NULL,
+  maxscore = NULL
 )
 }
 \arguments{
-\item{x}{a data frame or matrix. For multiple choice items, columns can be
-numeric or strings and keys should be provided. For polytomous items,
-all columns should be numeric.}
+\item{x}{a data frame or matrix.}
 
-\item{key}{a vector indicating the keys to score the data. If \code{NULL}
-items are assumed as polytomous.
-Default is \code{NULL}.}
+\item{key}{a vector or a list indicating the keys to score the data.
+If answers can only be right or wrong use a vector. If partial credits are allowed,
+use a list where the first element contains the keys for full credits, and next
+elements contain progressively the partial credit information.
+If a test has a combination of full credit and partial credit items, leave
+the full credit items as NAs in the keys for partial credit.}
 
-\item{categories}{a vector indicating all possible categories.
-If \code{NULL}, this vector will be created with all the non-NA
-values present in \code{x}. Default is \code{NULL}.}
+\item{navalue}{a single value indicating the score of NAs.}
 
-\item{wt}{a numeric vector of total weights. Default is \code{NULL}.}
+\item{wt}{a vector with total weights. Default is \code{NULL}.}
 
-\item{listwise}{only consider complete data (remove rows with NAs).
-Defaulft is \code{FALSE}.}
+\item{itemcategories}{a vector indicating all the possible categories for all
+items. If NULL, possible categories will be derived from data.}
 
-\item{recScore}{a logical value indicating if the total score for
-should be calculated based only on valid values. Thus,
-if \code{TRUE}: \code{rowMeans(x,na.rm = TRUE)*apply(x,1L,function(k) sum(!is.na(k)))};
-if \code{FALSE}: \code{rowMeans(x,na.rm = TRUE)*ncol(x)}. Defaulft is \code{TRUE}.
-If \code{listwise}, this argument is meaningless.}
-
-\item{administered}{a logical matrix indicating which items where administered.
+\item{administered}{a logical matrix indicating which items were administered.
 The dimensions should be the same as \code{x}. If \code{NULL} all items
 are considered administered.}
+
+\item{itemscores}{a numeric vector indicating all the possible scores for all items.
+If \code{NULL}, possible scores will be derived from data.}
+
+\item{maxscore}{a numeric value indicating which is the maximum score possible
+per item. The minimum score is assumed to be 0. If \code{NULL} the maximum score is assumed to be
+derived from the maximum value found in \code{x} or 1 if \code{x} only has 0s.}
 }
 \value{
 A list with item and person statistics.
@@ -50,19 +51,13 @@ Calculates several item and person statistics following
 \code{ctitem()}, and \code{ctperson()}.
 }
 \examples{
-data(dichodata)
-data(polydata)
-data(dichokey)
-
 # Data preparation
 ## Random weights creation
 set.seed(1919)
 wt <- sample(x = 1:4, size = nrow(dichodata), replace = TRUE)
 
 # Item and person analysis for multiple choice items
-classicaltest(x = dichodata, key = dichokey, categories = c('A','B','C','D'), wt = wt)
+classicaltest(x = dichodata, key = dichokey, wt = wt)
 
-# Item and person analysis for polytomous items
-classicaltest(x = polydata, key = NULL, wt = wt)
 
 }

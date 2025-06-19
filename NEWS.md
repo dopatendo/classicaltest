@@ -1,8 +1,8 @@
 
-# classicaltest 0.7.2
-
+# classicaltest 0.7.5
+New functions:
 - stcov
-- ctsemalpha and ctsemsplit
+- ctsem.alpha and ct.semsplit
 - discrimination
 - partialdata
 - partial correct
@@ -13,4 +13,4 @@
 # classicaltest 0.7.1
 - Initial CRAN realease.
 
-* Added a `NEWS.md` file to track changes to the package.
+
